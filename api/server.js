@@ -18,6 +18,8 @@ app.delete("/api/productType/remove/:id", productTypeController.remove);
 
 //User
 app.post("/api/user/signIn",userController.signIn);
+app.get("/api/user/info",userController.info);
+app.put("/api/user/update", userController.update);
 
 
 app.listen(3001,'0.0.0.0', () => {

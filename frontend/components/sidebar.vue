@@ -44,9 +44,9 @@ const signOut = async() => {
                     <i class="fa fa-sign-out mr-1"></i>
                     Sign Out
                 </button>
-                <button class="btn btn-primary text-xs block w-full mt-2">
+                <button class="btn btn-primary text-xs block w-full mt-2" @click="navigateTo('/userProfile')">
                     <i class="fa fa-user mr-1"></i>
-                    Sign In
+                    Profile
                 </button>
             </div>
         </div>
