@@ -146,7 +146,7 @@ const remove = async (id) => {
 
         <button class="btn btn-primary mt-3" @click="save">
             <i class="fa fa-check me-2"></i>
-            บันทึกนะจ๊ะ
+            บันทึก
         </button>
 
     </Modal>
