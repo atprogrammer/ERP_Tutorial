@@ -34,10 +34,35 @@ const toggleMenu = (menu) => {
                 <i class="fa fa-home"></i>
                 Dashboard
             </NuxtLink>
+            <NuxtLink class="nav-link" :class="{ 'active': activeMenu === 'production' }" to="/production"
+                @click="toggleMenu('production')">
+                <i class="fa fa-file-alt"></i>
+                บันทึกการผลิต
+            </NuxtLink>
             <NuxtLink class="nav-link" :class="{ 'active': activeMenu === 'productType' }" to="/productType"
                 @click="toggleMenu('productType')">
                 <i class="fa fa-file-alt"></i>
                 ประเภทสินค้า
+            </NuxtLink>
+            <NuxtLink class="nav-link" :class="{ 'active': activeMenu === 'product' }" to="/product"
+                @click="toggleMenu('product')">
+                <i class="fa fa-box"></i>
+                สินค้า
+            </NuxtLink>
+            <NuxtLink class="nav-link" :class="{ 'active': activeMenu === 'material' }" to="/material"
+                @click="toggleMenu('material')">
+                <i class="fa fa-cogs"></i>
+                วัสดุ,ส่วนผสม
+            </NuxtLink>
+            <NuxtLink class="nav-link" :class="{ 'active': activeMenu === 'packaging' }" to="/packaging"
+                @click="toggleMenu('packaging')">
+                <i class="fa fa-box"></i>
+                บรรจุภัณฑ์
+            </NuxtLink>
+            <NuxtLink class="nav-link" :class="{ 'active': activeMenu === 'productFormula' }" to="/productFormula"
+                @click="toggleMenu('productFormula')">
+                <i class="fa fa-receipt"></i>
+                สูตรสินค้า
             </NuxtLink>
         </div>
     </div>
