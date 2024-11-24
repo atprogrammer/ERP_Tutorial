@@ -1,33 +1,46 @@
 <script setup>
-import axios from 'axios'
-import Swal from 'sweetalert2'
+//นำเข้า axios สำหรับทำ request API
+import axios from 'axios' 
+//นำเข้า SweetAlert2 สำหรับ alert ข้อความ
+import Swal from 'sweetalert2' 
+//นำเข้า config สำหรับค่า server api
 import config from '@/config'
 
+//ประกาศ ref username และ password
 const username = ref('')
 const password = ref('')
 
+//ฟังชั่น handleSubmit จะถูกเรียกเมื่อ form ถูก submit
 const handleSubmit = async () => {
     try {
+        //ตรวจสอบว่า username และ password ไม่เป็น null หรือ "" 
         if (!username.value || !password.value) {
+            //แสดง alert ข้อความผิดพลาด Username and Password is required
             Swal.fire({
                 icon: 'error',
                 title: "Oops!",
                 text: "Username and Password is required",
             })
         } else {
+            //ส่ง request API POST ไปที่ ${config.apiServer}/api/user/signIn
             const response = await axios.post(`${config.apiServer}/api/user/signIn`, {
                 username: username.value,
                 password: password.value,
             })
 
+            //ตรวจสอบ status code ของการ request API
             if (response.status === 200) {
-                console.log(response.data);
+                //แสดงข้อมูล response ใน console
+                console.log(response.data); 
+                //เก็บ token จาก response.data.token ลงใน localStorage
                 localStorage.setItem(config.token, response.data.token);
-                //localStorage.setItem('nuxt_erp_user_id', response.data.data.id); //Laravel API
+                //เก็บ id ของ user ลงใน localStorage (Laravel API)
                 localStorage.setItem('nuxt_erp_user_id', response.data.id);
-                navigateTo('/home');
 
+                //ไปหน้า home
+                navigateTo('/home'); // ใช้ navigateTo() 
             } else {
+                //แสดง alert ข้อความผิดพลาด Invalid username or password
                 Swal.fire({
                     icon: 'error',
                     title: "Oops!",
@@ -37,6 +50,7 @@ const handleSubmit = async () => {
         }
 
     } catch (error) {
+        //แสดง alert ข้อความ error โดยแสดง title และ message ของ error
         Swal.fire({
             icon: 'error',
             title: error,
@@ -50,17 +64,26 @@ const handleSubmit = async () => {
 
 
 <template>
+    <!-- ส่วน template -->
     <div class="min-h-screen flex items-center justify-center bg-gradient-to-t from-blue-900 to-blue-100">
+        <!-- ส่วน login form -->
         <div class="w-full max-w-md p-8 space-y-6 bg-white shadow-lg rounded-lg">
+
+            <!-- Heading ของ Login Form -->
             <h2 class="text-3xl font-bold text-gray-900 text-center">
                 Sing In to Nuxt ERP
             </h2>
+
+            <!-- ฟอร์ม login -->
             <form class="mt-8 space-y-6" @submit.prevent="handleSubmit">
+                <!-- input Username -->
                 <div class="rounded-md shadow-sm -space-y-px">
                     <div>
                         <div>Username</div>
                         <input v-model="username" required class="form-control" placeholder="Username">
                     </div>
+
+                    <!-- input Password -->
                     <div class="pt-5">
                         <div>Password</div>
                         <input type="password" v-model="password" required class="form-control" placeholder="Password" />
@@ -68,6 +91,7 @@ const handleSubmit = async () => {
 
                 </div>
 
+                <!-- ส่วน checkbox และ link forgot password -->
                 <div class="flex items-center justify-between">
                     <div class="flex">
                         <input id="remember_me" type="checkbox"
@@ -81,6 +105,9 @@ const handleSubmit = async () => {
                         </a>
                     </div>
                 </div>
+
+
+                <!-- button submit -->
                 <div>
                     <button type="submit" class="btn-full">Sign In</button>
                 </div>
