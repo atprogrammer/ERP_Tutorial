@@ -8,7 +8,7 @@ import axios from 'axios';
 // Import Swal library for creating popup notifications (SweetAlert)
 import Swal from 'sweetalert2';
 
-// กำหนด metadata สำหรับหน้าเว็บนี้, รวมถึง layout ที่จะใช้ (admin ในกรณีนี้)
+// กำหนด metadata สำหรับหน้าเว็บนี้, รวมถึง layout ที่จะใช้ (admin ในกรณีนี้) 
 definePageMeta(
     {
         layout: 'admin',

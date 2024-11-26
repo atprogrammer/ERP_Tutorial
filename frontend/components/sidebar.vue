@@ -56,17 +56,17 @@ const signOut = async() => {
                 <i class="fa fa-home"></i>
                 Dashboard
             </NuxtLink>
-            <NuxtLink class="nav-link" :class="{ 'active': activeMenu === 'production' }" to="/production"
+            <!-- <NuxtLink class="nav-link" :class="{ 'active': activeMenu === 'production' }" to="/production"
                 @click="toggleMenu('production')">
                 <i class="fa fa-copy"></i>
                 บันทึกการผลิต
-            </NuxtLink>
+            </NuxtLink> -->
             <NuxtLink class="nav-link" :class="{ 'active': activeMenu === 'productType' }" to="/productType"
                 @click="toggleMenu('productType')">
                 <i class="fa fa-file-alt"></i>
                 ประเภทสินค้า
             </NuxtLink>
-            <NuxtLink class="nav-link" :class="{ 'active': activeMenu === 'product' }" to="/product"
+            <!-- <NuxtLink class="nav-link" :class="{ 'active': activeMenu === 'product' }" to="/product"
                 @click="toggleMenu('product')">
                 <i class="fa fa-box"></i>
                 สินค้า
@@ -105,7 +105,7 @@ const signOut = async() => {
                 @click="toggleMenu('users')">
                 <i class="fa fa-users"></i>
                 ผู้ใช้งาน
-            </NuxtLink>
+            </NuxtLink> -->
         </div>
     </div>
 </template>

@@ -1,5 +1,6 @@
 คำสั่งรัน
-node --watch server.js
+node --watch server.js (กรณีไม่ลง nodemon)
+หรือ npm start (กรณีลง nodemon)
 
 คำสั่งรันเมื่อสร้างโครงสร้างหรือปรับโครงสร้างใหม่
 ืnpx prisma generate
